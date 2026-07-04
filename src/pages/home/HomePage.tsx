@@ -1,15 +1,10 @@
 import React from "react";
 import { TodoWidget } from "@widgets/TodoWidget";
+import "./HomePage.css";
 
 export const HomePage: React.FC = () => {
 	return (
-		<div
-			style={{
-				height: "100vh",
-				padding: "40px 20px",
-				boxSizing: "border-box",
-			}}
-		>
+		<div className="home-container">
 			<TodoWidget />
 		</div>
 	);

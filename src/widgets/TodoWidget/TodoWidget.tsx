@@ -8,6 +8,7 @@ import { FilterTodos } from "@features/FilterTodos";
 import { ClearCompleted } from "@features/ClearCompleted";
 import { ThemeToggle } from "@features/ThemeToggle";
 import { useTranslation } from "react-i18next";
+import "./TodoWidget.css";
 
 const { Title } = Typography;
 
@@ -22,11 +23,8 @@ export const TodoWidget: React.FC = () => {
 	return (
 		<Card
 			variant="borderless"
+			className="todo-widget-card"
 			style={{
-				boxShadow: "0 8px 32px rgba(0, 0, 0, 0.1)",
-				borderRadius: "12px",
-				maxWidth: "800px",
-				margin: "0 auto",
 				height: "100%",
 				display: "flex",
 				flexDirection: "column",
@@ -74,7 +72,10 @@ export const TodoWidget: React.FC = () => {
 				</Tag>
 			</Space>
 
-			<div style={{ flex: 1, overflowY: "auto", marginBottom: "16px" }}>
+			<div
+				className="todo-scroll"
+				style={{ flex: 1, overflowY: "auto", marginBottom: "16px" }}
+			>
 				<TodoList todos={filteredTodos} />
 			</div>
 

@@ -1,21 +1,25 @@
 import i18n from "i18next";
 import { initReactI18next } from "react-i18next";
 import LanguageDetector from "i18next-browser-languagedetector";
-import Backend from "i18next-http-backend";
+
+import enTranslation from "@shared/config/locales/en.json";
+import ruTranslation from "@shared/config/locales/ru.json";
+
+const resources = {
+	en: { translation: enTranslation },
+	ru: { translation: ruTranslation },
+};
 
 i18n
-	.use(Backend)
 	.use(LanguageDetector)
 	.use(initReactI18next)
 	.init({
+		resources,
 		fallbackLng: "en",
 		supportedLngs: ["en", "ru"],
 		debug: import.meta.env.DEV,
 		interpolation: {
 			escapeValue: false,
-		},
-		backend: {
-			loadPath: "/locales/{{lng}}/translation.json",
 		},
 		detection: {
 			order: ["localStorage", "navigator"],

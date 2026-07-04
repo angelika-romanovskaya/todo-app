@@ -30,10 +30,14 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({
 
 	useEffect(() => {
 		LocalStorageService.set(THEME_STORAGE_KEY, isDark);
+		document.documentElement.setAttribute(
+			"data-theme",
+			isDark ? "dark" : "light",
+		);
 	}, [isDark]);
 
 	const toggleTheme = useCallback(() => {
-		setIsDark((prev) => !prev);
+		setIsDark((prev: boolean) => !prev);
 	}, []);
 
 	return (

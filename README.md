@@ -1,75 +1,31 @@
-# React + TypeScript + Vite
+# 📝 Todo App – Современный менеджер задач
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Полнофункциональное, стильное приложение для управления задачами на **React**, **TypeScript** и **Ant Design**.  
+Демонстрирует масштабируемую архитектуру **Feature-Sliced Design**, поддерживает **светлую/тёмную тему**, **многоязычность** (русский / английский) и сохраняет задачи в `localStorage`.
 
-Currently, two official plugins are available:
+![React](https://img.shields.io/badge/React-19-61DAFB?logo=react)
+![TypeScript](https://img.shields.io/badge/TypeScript-6-3178C6?logo=typescript)
+![Ant Design](https://img.shields.io/badge/Ant_Design-6.5-0170FE?logo=ant-design)
+![FSD Architecture](https://img.shields.io/badge/FSD-архитектура-blue)
+![GitHub Pages](https://img.shields.io/badge/GitHub_Pages-опубликовано-success?logo=github)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+---
 
-## React Compiler
+## 🚀 Возможности
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- ✅ **Добавление / редактирование / удаление** задач с удобным интерфейсом
+- ✅ **Отметка выполнения** – чекбокс и зачёркивание текста
+- ✅ **Фильтрация** – Все, Активные, Завершённые (сегментированный переключатель)
+- ✅ **Очистка выполненных** с диалогом подтверждения
+- ✅ **Сохранение состояния** – автосохранение задач и фильтра в `localStorage`
+- ✅ **Светлая / тёмная тема** – переключение в один клик, выбор сохраняется
+- ✅ **Многоязычность** – русский и английский (на основе `react-i18next`)
+- ✅ **Адаптивный дизайн** – фиксированная высота виджета с прокруткой списка
+- ✅ **Доступность** – ARIA-атрибуты, управление с клавиатуры (Enter/Escape при редактировании)
+- ✅ **FSD архитектура** – чистое разделение ответственности, легко расширять
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## 🧱 Архитектура: Feature-Sliced Design
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-
-```
-
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-
-```
+Проект строго следует методологии [Feature-Sliced Design](https://feature-sliced.design/).
